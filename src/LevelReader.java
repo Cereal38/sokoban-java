@@ -4,7 +4,17 @@ import java.util.Scanner;
 
 public class LevelReader {
 
-  public Level readNextLevel(File source) {
+  private Scanner scanner;
+
+  public LevelReader(File source) {
+    try {
+      this.scanner = new Scanner(source);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public Level readNextLevel() {
 
     Level level = new Level();
     String line = "";
@@ -13,12 +23,11 @@ public class LevelReader {
 
     char[][] oversizedGrid = new char[100][100];
 
-    try (Scanner scanner = new Scanner(source)) {
-
+    try {
       boolean endReached = false;
       // Read file until the end or reaching a semicolon
-      while (scanner.hasNextLine() && !endReached) {
-        line = scanner.nextLine();
+      while (this.scanner.hasNextLine() && !endReached) {
+        line = this.scanner.nextLine();
         // Reaching the comment
         if (line.toCharArray()[0] == ';') {
           // Set the name
@@ -47,8 +56,7 @@ public class LevelReader {
         }
       }
       level.setGrid(correctGrid);
-
-    } catch (FileNotFoundException e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
 
