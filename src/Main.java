@@ -7,6 +7,7 @@ class Main {
     LevelReader reader = new LevelReader(file);
     Level level;
     level = reader.readNextLevel();
+    level = reader.readNextLevel();
     char[][] grid = level.grid();
     System.out.println("Level number " + level.name());
     for (int i = 0; i < level.rows(); i++) {

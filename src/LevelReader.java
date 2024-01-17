@@ -37,6 +37,10 @@ public class LevelReader {
             level.setName(name);
           }
           endReached = true;
+          // Ignore the empty line between levels
+          if (this.scanner.hasNextLine()) {
+            this.scanner.nextLine();
+          }
         } else {
           oversizedGrid[rowNumber] = line.toCharArray();
           if (line.length() > colNumber) {
