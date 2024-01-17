@@ -4,41 +4,45 @@ class Level {
   String name;
   char[][] grid;
 
-  public int columns() {
+  public int rows() {
     return this.grid.length;
   }
 
-  public int rows() {
-    if (this.columns() == 0) {
+  public int columns() {
+    if (this.rows() == 0) {
       return 0;
     }
     return this.grid[0].length;
+  }
+
+  public char[][] grid() {
+    return this.grid;
   }
 
   public String name() {
     return this.name;
   }
 
-  public boolean isEmpty(int column, int row) {
-    return (grid[column][row] == ' ');
+  public boolean isEmpty(int row, int column) {
+    return (grid[row][column] == ' ');
   }
 
-  public boolean isWall(int column, int row) {
-    return (grid[column][row] == '#');
+  public boolean isWall(int row, int column) {
+    return (grid[row][column] == '#');
   }
 
-  public boolean isGoal(int column, int row) {
-    char cell = grid[column][row];
+  public boolean isGoal(int row, int column) {
+    char cell = grid[row][column];
     return (cell == '.' || cell == '+' || cell == '*');
   }
 
-  public boolean isPlayer(int column, int row) {
-    char cell = grid[column][row];
+  public boolean isPlayer(int row, int column) {
+    char cell = grid[row][column];
     return (cell == '@' || cell == '+');
   }
 
-  public boolean isBox(int column, int row) {
-    char cell = grid[column][row];
+  public boolean isBox(int row, int column) {
+    char cell = grid[row][column];
     return (cell == '$' || cell == '*');
   }
 
@@ -50,23 +54,23 @@ class Level {
     this.grid = grid;
   }
 
-  public void emptyCell(int column, int row) {
-    grid[column][row] = ' ';
+  public void emptyCell(int row, int column) {
+    grid[row][column] = ' ';
   }
 
-  public void addWall(int column, int row) {
-    grid[column][row] = '#';
+  public void addWall(int row, int column) {
+    grid[row][column] = '#';
   }
 
-  public void addPlayer(int column, int row) {
-    grid[column][row] = '@';
+  public void addPlayer(int row, int column) {
+    grid[row][column] = '@';
   }
 
-  public void addGoal(int column, int row) {
-    grid[column][row] = '.';
+  public void addGoal(int row, int column) {
+    grid[row][column] = '.';
   }
 
-  public void addBox(int column, int row) {
-    grid[column][row] = '$';
+  public void addBox(int row, int column) {
+    grid[row][column] = '$';
   }
 }

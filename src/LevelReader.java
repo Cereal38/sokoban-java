@@ -8,8 +8,8 @@ public class LevelReader {
 
     Level level = new Level();
     String line = "";
-    int colNumber = 0;
     int rowNumber = 0;
+    int colNumber = 0;
 
     char[][] oversizedGrid = new char[100][100];
 
@@ -32,11 +32,11 @@ public class LevelReader {
       }
 
       // Copy the temp array to the level grid and remove useless col or row
-      char[][] correctGrid = new char[colNumber][rowNumber];
-      for (int col = 0; col < colNumber; col++) {
-        for (int row = 0; row < rowNumber; row++) {
-          if (row < oversizedGrid[col].length) {
-            correctGrid[col][row] = oversizedGrid[col][row];
+      char[][] correctGrid = new char[rowNumber][colNumber];
+      for (int row = 0; row < rowNumber; row++) {
+        for (int col = 0; col < colNumber; col++) {
+          if (col < oversizedGrid[row].length) {
+            correctGrid[row][col] = oversizedGrid[row][col];
           }
         }
       }
