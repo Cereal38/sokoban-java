@@ -46,6 +46,10 @@ class Level {
     this.name = name;
   }
 
+  public void setGrid(char[][] grid) {
+    this.grid = grid;
+  }
+
   public void emptyCell(int column, int row) {
     grid[column][row] = ' ';
   }
