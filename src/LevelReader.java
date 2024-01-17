@@ -21,6 +21,12 @@ public class LevelReader {
         line = scanner.nextLine();
         // Reaching the comment
         if (line.toCharArray()[0] == ';') {
+          // Set the name
+          int semicolonIndex = line.indexOf(';');
+          if (semicolonIndex != -1 && semicolonIndex < line.length() - 1) {
+            String name = line.substring(semicolonIndex + 1).trim();
+            level.setName(name);
+          }
           endReached = true;
         } else {
           oversizedGrid[rowNumber] = line.toCharArray();
@@ -41,8 +47,6 @@ public class LevelReader {
         }
       }
       level.setGrid(correctGrid);
-
-      // TODO: Set the name
 
     } catch (FileNotFoundException e) {
       e.printStackTrace();
