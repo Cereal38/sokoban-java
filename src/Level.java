@@ -28,15 +28,18 @@ class Level {
   }
 
   public boolean isGoal(int column, int row) {
-    return (grid[column][row] == '.' || grid[column][row] == '+' || grid[column][row] == '*');
+    char cell = grid[column][row];
+    return (cell == '.' || cell == '+' || cell == '*');
   }
 
   public boolean isPlayer(int column, int row) {
-    return (grid[column][row] == '@' || grid[column][row] == '+');
+    char cell = grid[column][row];
+    return (cell == '@' || cell == '+');
   }
 
   public boolean isBox(int column, int row) {
-    return (grid[column][row] == '$' || grid[column][row] == '*');
+    char cell = grid[column][row];
+    return (cell == '$' || cell == '*');
   }
 
   public void setName(String name) {
