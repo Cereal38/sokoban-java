@@ -35,7 +35,9 @@ public class LevelReader {
       char[][] correctGrid = new char[colNumber][rowNumber];
       for (int col = 0; col < colNumber; col++) {
         for (int row = 0; row < rowNumber; row++) {
-          correctGrid[col][row] = oversizedGrid[col][row];
+          if (row < oversizedGrid[col].length) {
+            correctGrid[col][row] = oversizedGrid[col][row];
+          }
         }
       }
       level.setGrid(correctGrid);
