@@ -6,12 +6,18 @@ public class LevelWriter {
 
   private PrintStream printStream;
 
+  // Constructor that takes a File
   public LevelWriter(File source) {
     try {
       this.printStream = new PrintStream(new FileOutputStream(source));
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+
+  // Constructor that takes a stream (Example: System.out)
+  public LevelWriter(PrintStream stream) {
+    this.printStream = stream;
   }
 
   public void writeLevel(Level level) {
