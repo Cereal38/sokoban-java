@@ -56,6 +56,9 @@ public class LevelReader {
         for (int col = 0; col < colNumber; col++) {
           if (col < oversizedGrid[row].length) {
             correctGrid[row][col] = oversizedGrid[row][col];
+          } else {
+            // Write ' ' where there is nothing except the void
+            correctGrid[row][col] = ' ';
           }
         }
       }

@@ -12,5 +12,9 @@ class Main {
     LevelWriter levelWriter = new LevelWriter(System.out);
     levelWriter.writeLevel(level);
 
+    File fileOut = new File("levels/out.txt");
+    LevelWriter levelWriterFile = new LevelWriter(fileOut);
+    levelWriterFile.writeLevel(level);
+
   }
 }

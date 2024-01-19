@@ -23,9 +23,9 @@ public class LevelWriter {
   public void writeLevel(Level level) {
     try {
       for (int i = 0; i < level.rows(); i++) {
-        System.out.println(level.grid()[i]);
+        printStream.println(level.grid()[i]);
       }
-      System.out.println("; " + level.name());
+      printStream.println("; " + level.name() + "\n");
     } catch (Exception e) {
       e.printStackTrace();
     }
