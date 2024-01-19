@@ -22,7 +22,10 @@ public class LevelWriter {
 
   public void writeLevel(Level level) {
     try {
-      printStream.println("Hey");
+      for (int i = 0; i < level.rows(); i++) {
+        System.out.println(level.grid()[i]);
+      }
+      System.out.println("; " + level.name());
     } catch (Exception e) {
       e.printStackTrace();
     }
