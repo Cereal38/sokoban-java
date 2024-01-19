@@ -24,3 +24,4 @@ hs_err_pid*
 replay_pid*
 
 levels/out.txt
+levels/loaded.txt

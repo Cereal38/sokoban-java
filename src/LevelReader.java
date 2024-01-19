@@ -16,6 +16,11 @@ public class LevelReader {
 
   public Level readNextLevel() {
 
+    // No more level to read
+    if (!this.scanner.hasNextLine()) {
+      return null;
+    }
+
     Level level = new Level();
     String line = "";
     int rowNumber = 0;
