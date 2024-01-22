@@ -25,5 +25,19 @@ class Main {
     sequence.printSequence();
     sequence.insertEnd(6);
     sequence.printSequence();
+    sequence.removeEnd();
+    sequence.printSequence();
+    sequence.removeEnd();
+    sequence.printSequence();
+    sequence.removeEnd();
+    sequence.printSequence();
+    sequence.removeStart();
+    sequence.printSequence();
+    sequence.removeStart();
+    sequence.printSequence();
+    sequence.removeStart();
+    sequence.printSequence();
+    sequence.removeStart();
+    sequence.printSequence();
   }
 }

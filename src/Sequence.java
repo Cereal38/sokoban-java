@@ -31,6 +31,24 @@ public class Sequence {
     }
   }
 
+  void removeStart() {
+    int nextStart = start == tab.length - 1 ? 0 : start + 1;
+    if (nextStart != end) {
+      start = nextStart;
+    } else {
+      throw new RuntimeException("Sequence is empty");
+    }
+  }
+
+  void removeEnd() {
+    int nextEnd = end == 0 ? tab.length - 1 : end - 1;
+    if (nextEnd != start) {
+      end = nextEnd;
+    } else {
+      throw new RuntimeException("Sequence is empty");
+    }
+  }
+
   void printSequence() {
     System.out.print("Sequence: ");
     int i = start == tab.length - 1 ? 0 : start + 1;
