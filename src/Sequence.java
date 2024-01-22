@@ -1,6 +1,6 @@
 public class Sequence {
 
-  int tab[] = new int[10];
+  int tab[] = new int[2];
   int start = tab.length - 1;
   int end = 0;
 
@@ -43,17 +43,16 @@ public class Sequence {
 
   private void grow() {
     int newTab[] = new int[tab.length * 2];
-    int i;
-    for (i = 0; i < start; i++) {
-      newTab[i] = tab[i];
+    // Copy from start to end at the beginning of the new array
+    int i = start == tab.length - 1 ? 0 : start + 1;
+    int j = 0;
+    while (i != end) {
+      newTab[j] = tab[i];
+      i = i == tab.length - 1 ? 0 : i + 1;
+      j++;
     }
-    start = i + 1;
-
-    for (i = tab.length - 1; i >= end; i--) {
-      newTab[newTab.length - 1 - i] = tab[i];
-    }
-    end = newTab.length - 1 - i;
-
+    start = newTab.length - 1;
+    end = j;
     tab = newTab;
   }
 }
