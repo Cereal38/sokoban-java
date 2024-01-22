@@ -13,17 +13,17 @@ class Main {
     // }
     Sequence sequence = new Sequence();
     sequence.printSequence();
-    sequence.insertHead(3);
+    sequence.insertEnd(3);
     sequence.printSequence();
-    sequence.insertHead(4);
+    sequence.insertEnd(4);
     sequence.printSequence();
-    sequence.insertHead(5);
+    sequence.insertEnd(5);
     sequence.printSequence();
-    sequence.insertTail(2);
+    sequence.insertStart(2);
     sequence.printSequence();
-    sequence.insertTail(1);
+    sequence.insertStart(1);
     sequence.printSequence();
-    sequence.insertHead(6);
+    sequence.insertEnd(6);
     sequence.printSequence();
   }
 }

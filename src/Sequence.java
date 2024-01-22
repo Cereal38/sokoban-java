@@ -1,42 +1,46 @@
 public class Sequence {
 
   int tab[] = new int[10];
-  int head = 0;
-  int tail = 0;
+  int start = 0;
+  int end = 0;
 
-  // Write and shift head right
-  void insertHead(int value) {
+  // Write and increase end
+  void insertEnd(int value) {
 
-    tab[head] = value;
+    tab[end] = value;
 
-    int nextHead = head == tab.length - 1 ? 0 : head + 1;
+    int nextEnd = end == tab.length - 1 ? 0 : end + 1;
 
-    if (nextHead == tail) {
+    if (nextEnd == start) {
       throw new RuntimeException("Sequence is full");
     } else {
-      head = nextHead;
+      end = nextEnd;
     }
+
   }
 
-  // Shift tail left and write
-  void insertTail(int value) {
+  // Write and shift head right
+  void insertStart(int value) {
 
-    int nextTail = tail == 0 ? tab.length - 1 : tail - 1;
+    int nextStart = start == 0 ? tab.length - 1 : start - 1;
 
-    if (nextTail == head) {
+    if (nextStart == end) {
       throw new RuntimeException("Sequence is full");
     } else {
-      tail = nextTail;
-      tab[tail] = value;
+      start = nextStart;
+      tab[start] = value;
     }
   }
 
   void printSequence() {
-    int i = tail;
-    while (i != head) {
+    int i = start;
+    while (i != end) {
       System.out.print(tab[i] + " ");
       i = i == tab.length - 1 ? 0 : i + 1;
     }
     System.out.println();
+  }
+
+  private void grow() {
   }
 }
