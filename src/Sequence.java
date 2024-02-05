@@ -1,4 +1,6 @@
-public class Sequence {
+import java.util.Iterator;
+
+public class Sequence implements Iterable<Integer> {
 
   int tab[] = new int[2];
   int start = tab.length - 1;
@@ -72,5 +74,26 @@ public class Sequence {
     start = newTab.length - 1;
     end = j;
     tab = newTab;
+  }
+
+  @Override
+  public Iterator<Integer> iterator() {
+    return new SequenceIterator();
+  }
+
+  private class SequenceIterator implements Iterator<Integer> {
+    private int currentIndex = start == tab.length - 1 ? 0 : start + 1;
+
+    @Override
+    public boolean hasNext() {
+      return currentIndex != end;
+    }
+
+    @Override
+    public Integer next() {
+      int value = tab[currentIndex];
+      currentIndex = currentIndex == tab.length - 1 ? 0 : currentIndex + 1;
+      return value;
+    }
   }
 }
