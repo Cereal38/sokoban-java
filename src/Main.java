@@ -1,7 +1,7 @@
 class Main {
   public static void main(String[] args) {
 
-    Sequence<String> sequence = new Sequence();
+    Sequence<String> sequence = new Sequence<>();
     sequence.insertEnd("One");
     sequence.insertEnd("Three");
     sequence.removeEnd();
