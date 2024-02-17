@@ -1,13 +1,13 @@
 import java.util.Iterator;
 
-public class Sequence implements Iterable<Integer> {
+public class Sequence<T> implements Iterable<T> {
 
-  int tab[] = new int[2];
-  int start = tab.length - 1;
-  int end = 0;
+  private Object[] tab = new Object[2];
+  private int start = tab.length - 1;
+  private int end = 0;
 
   // Write and increase end
-  void insertEnd(int value) {
+  void insertEnd(T value) {
 
     tab[end] = value;
 
@@ -21,7 +21,7 @@ public class Sequence implements Iterable<Integer> {
   }
 
   // Write and decrease start
-  void insertStart(int value) {
+  void insertStart(T value) {
 
     tab[start] = value;
 
@@ -62,7 +62,7 @@ public class Sequence implements Iterable<Integer> {
   }
 
   private void grow() {
-    int newTab[] = new int[tab.length * 2];
+    Object[] newTab = new Object[tab.length * 2];
     // Copy from start to end at the beginning of the new array
     int i = start == tab.length - 1 ? 0 : start + 1;
     int j = 0;
@@ -77,11 +77,11 @@ public class Sequence implements Iterable<Integer> {
   }
 
   @Override
-  public Iterator<Integer> iterator() {
+  public Iterator<T> iterator() {
     return new SequenceIterator();
   }
 
-  private class SequenceIterator implements Iterator<Integer> {
+  private class SequenceIterator implements Iterator<T> {
     private int currentIndex = start == tab.length - 1 ? 0 : start + 1;
 
     @Override
@@ -90,8 +90,8 @@ public class Sequence implements Iterable<Integer> {
     }
 
     @Override
-    public Integer next() {
-      int value = tab[currentIndex];
+    public T next() {
+      T value = (T) tab[currentIndex];
       currentIndex = currentIndex == tab.length - 1 ? 0 : currentIndex + 1;
       return value;
     }
