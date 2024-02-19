@@ -1,14 +1,8 @@
 class Main {
   public static void main(String[] args) {
 
-    Sequence<String> sequence = new Sequence<>();
-    sequence.insertEnd("One");
-    sequence.insertEnd("Three");
-    sequence.removeEnd();
-    sequence.insertEnd("Two");
-    sequence.insertStart("Zero");
-    sequence.insertEnd("Three");
-    sequence.printSequence();
+    DemoFenetre Fenetre = new DemoFenetre();
+    Fenetre.run();
 
     // /* Load all level from the given file */
     // File fileIn = new File("levels/original.txt");
